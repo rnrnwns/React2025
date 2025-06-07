@@ -14,10 +14,10 @@ const UpdatePage = () => {
 
     const getPost = async() => {
         setLoading(true);
-        const snapshot = await getDoc(doc(db, 'bbs', id));
+        const snapshot = await getDoc(doc(db, 'post', id));
         console.log(snapshot.data());
-        const bbs = snapshot.data();
-        setForm({...bbs, preTitle:bbs.title, preBody:bbs.body});
+        const post = snapshot.data();
+        setForm({...post, preTitle:post.title, preBody:post.body});
         setLoading(false)
     }
 
@@ -30,8 +30,8 @@ const UpdatePage = () => {
     const onSubmit = async(e) => {
         e.preventDefault();
         if(window.confirm('정말로 수정하실래요?')){
-            const bbs = {email, date, title, body}
-            await setDoc(doc(db, 'bbs', id), bbs);
+            const post = {email, date, title, body}
+            await setDoc(doc(db, 'post', id), post);
             nav(-1);
         }
     }

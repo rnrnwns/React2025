@@ -24,6 +24,7 @@ const HomePage = () => {
     const apiKey = process.env.REACT_APP_KAKAO_REST_KEY;
 
     const callAPI = async() => {
+        console.log("📢 Kakao API 키:", process.env.REACT_APP_KAKAO_REST_KEY);
         const url="https://dapi.kakao.com/v3/search/book?target=title"
         const config = {
             headers:{

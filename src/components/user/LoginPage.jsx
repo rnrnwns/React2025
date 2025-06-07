@@ -9,7 +9,7 @@ const LoginPage = () => {
     const auth = getAuth(app);
     const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({
-        email: 'red@inha.com',
+        email: 'gujun1@inha.com',
         pass: '12341234'
     });
 
