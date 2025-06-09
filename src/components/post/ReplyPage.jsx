@@ -40,21 +40,21 @@ const ReplyPage = ( { id } ) => {
                             <TextareaAutoSize
                                 onChange={(e) => setContents(e.target.value)}
                                 value={contents}
-                                placeholder='Enter contents'
+                                placeholder='댓글을 입력하세요'
                                 className='textarea'
                             />
                             <Button
                                 onClick={onWrite}
                                 disabled={contents === ''}
                                 className='px-5 text-end'
-                            >Add</Button>
+                            >댓글추가</Button>
                         </Form>
                     </Col>
                 </Row>
                 :
                 <Row className='justify-content-center'>
                     <Col md={10}>
-                        <Button onClick={onLogin} className='w-100'>Login</Button>
+                        <Button onClick={onLogin} className='w-100'>로그인하기</Button>
                     </Col>
                 </Row>
             }

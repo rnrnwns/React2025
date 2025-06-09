@@ -38,7 +38,7 @@ const EditPage = () => {
     const onSubmit = async (e) => {
         setIsLoading(true);
         e.preventDefault();
-        if(window.confirm('Do you want to edit this post?')){
+        if(window.confirm('정말 수정하시겠어요?')){
             const post = {title, content, email, date};
             await setDoc(doc(db, 'post', id), post);
             setIsLoading(false);
@@ -47,7 +47,7 @@ const EditPage = () => {
     }
 
     const onReset = () => {
-        if(window.confirm('Do you want to reset this post?')){
+        if(window.confirm('내용을 초기상태로 되돌릴까요?')){
             getPost();
         }
     };
@@ -82,12 +82,12 @@ const EditPage = () => {
                                 type='submit'
                                 disabled={title === preTitle && content === preContent}
                                 className='px-5 me-2'
-                            >Save</Button>
+                            >저장하기</Button>
                             <Button
                                 type='reset'
                                 disabled={title === preTitle && content === preContent}
                                 className='px-5' variant='secondary'
-                            >Cancel</Button>
+                            >취소하기</Button>
                         </div>
                     </Form>
                 </Col>

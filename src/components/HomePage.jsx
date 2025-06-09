@@ -113,7 +113,7 @@ const HomePage = () => {
     if(loading) return <h1 className='my-5 text-center'>로딩중......</h1>
     return (
         <div>
-            <h1 className='my-5 text-center'>홈페이지</h1>
+            <h1 className='my-5 text-center'>책 검색</h1>
             <Row className='mb-2'>
                 <Col>
                     <Form onSubmit={onSumbit}>

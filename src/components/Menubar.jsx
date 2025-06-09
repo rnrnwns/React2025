@@ -8,16 +8,17 @@ const Menubar = () => {
     const navi = useNavigate();
     const email = sessionStorage.getItem('email');
     const location = useLocation();
-    const {pathname} = location;
+    const { pathname } = location;
     const basename = process.env.PUBLIC_URL;
 
     const onLogout = (e) => {
         e.preventDefault();
-        if(window.confirm("Are you sure want to logout?")){
+        if (window.confirm("정말 로그아웃 하실거에요?")) {
             sessionStorage.clear();
             navi('/');
         }
     }
+
     return (
         <>
             <Navbar expand="lg" bg="primary" data-bs-theme="dark">
@@ -29,19 +30,36 @@ const Menubar = () => {
                             className="me-auto my-2 my-lg-0"
                             style={{ maxHeight: '100px' }}
                             navbarScroll>
-                            <Nav.Link href={`${basename}/`} active={pathname === '/' && true}>Home</Nav.Link>
-                            <Nav.Link href={`${basename}/cart`} active={pathname === '/cart' && true}>Cart</Nav.Link>
-                            <Nav.Link href={`${basename}/post`} active={pathname === '/post' && true}>Post</Nav.Link>
+                            <Nav.Link href={`${basename}/`} active={pathname === '/'}>
+                                책 검색
+                            </Nav.Link>
+
+                            {/* 로그인한 경우에만 Cart 표시 */}
+                            {email && (
+                                <Nav.Link href={`${basename}/cart`} active={pathname === '/cart'}>
+                                    장바구니
+                                </Nav.Link>
+                            )}
+
+                            <Nav.Link href={`${basename}/post`} active={pathname === '/post'}>
+                                게시판
+                            </Nav.Link>
                         </Nav>
                         <Nav>
-                            {email ?
+                            {email ? (
                                 <>
-                                    <Nav.Link href='#' active={true}>{email}</Nav.Link>
-                                    <Nav.Link href='#' onClick={onLogout}>Logout</Nav.Link>
+                                    <Nav.Link href="#" active={true}>
+                                        {email}
+                                    </Nav.Link>
+                                    <Nav.Link href="#" onClick={onLogout}>
+                                        로그아웃
+                                    </Nav.Link>
                                 </>
-                                :
-                                <Nav.Link href={`${basename}/login`}  active={pathname === '/login' && true}>Login</Nav.Link>
-                            }
+                            ) : (
+                                <Nav.Link href={`${basename}/login`} active={pathname === '/login'}>
+                                    로그인
+                                </Nav.Link>
+                            )}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -51,4 +69,4 @@ const Menubar = () => {
     );
 }
 
-export default Menubar
+export default Menubar;

@@ -31,7 +31,7 @@ const ReadPage = () => {
     }
 
     const onDelete = async () => {
-        if(window.confirm('Do you really want to delete this post?')){
+        if(window.confirm('정말로 이 게시글을 삭제하시겠어요?')){
             await deleteDoc(doc(db, 'post', id));
             navi('/post');
         }
@@ -45,12 +45,12 @@ const ReadPage = () => {
 
     return (
         <div>
-            <h1 className='my-5 text-center'>Post info</h1>
+            <h1 className='my-5 text-center'>게시글 내용</h1>
             {login === email &&
                 <Row className='justify-content-center'>
                     <Col md={10} className='text-end mb-2'>
-                        <Button onClick={() => navi(`/post/edit/${id}`)} size='sm' variant='outline-success' className='mx-2'>Edit</Button>
-                        <Button onClick={onDelete} size='sm' variant='outline-danger'>Delete</Button>
+                        <Button onClick={() => navi(`/post/edit/${id}`)} size='sm' variant='outline-success' className='mx-2'>수정하기</Button>
+                        <Button onClick={onDelete} size='sm' variant='outline-danger'>삭제하기</Button>
                     </Col>
                 </Row>
             }

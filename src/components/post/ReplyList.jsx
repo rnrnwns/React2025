@@ -59,7 +59,7 @@ export const ReplyList = ( { pid } ) => {
     }
 
     const onClickDelete = async (id) => {
-        if(window.confirm('Do you really want to delete reply?')){
+        if(window.confirm('정말로 댓글을 삭제하실거에요?')){
             await deleteDoc(doc(db, 'reply', id));
         }
     }
@@ -94,10 +94,10 @@ export const ReplyList = ( { pid } ) => {
                                         onClick={() => onClickSave(reply.id)}
                                         size='sm' variant='primary' className='mx-2' 
                                         disabled={reply.text === reply.contents}
-                                    >Save</Button>
+                                    >저장하기</Button>
                                     <Button onClick={() => onClickCancel(reply)} 
                                         size='sm' variant='secondary'
-                                    >cancel</Button>
+                                    >취소하기</Button>
                                 </div>      
                             </Form>
                             :

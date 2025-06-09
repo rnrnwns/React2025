@@ -55,17 +55,17 @@ const ListPage = () => {
 
     return (
         <div>
-            <h1 className='my-5 text-center'>Post</h1>
+            <h1 className='my-5 text-center'>게시글</h1>
             <div className='mb-2'>
-                <Button onClick={onClickWrite} className='px-5'>Write</Button>
+                <Button onClick={onClickWrite} className='px-5'>작성하기</Button>
             </div>
             <Table hover>
                 <thead>
                     <tr>
-                        <td>No.</td>
-                        <td>Title</td>
-                        <td>Writer</td>
-                        <td>Date</td>
+                        <td>번호</td>
+                        <td>제목</td>
+                        <td>작성자</td>
+                        <td>작성일자</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,11 +84,11 @@ const ListPage = () => {
             <div className='text-center'>
                 <Button onClick={() => setPage(page - 1)} 
                     disabled={page === 1} 
-                    size='sm' className='px-3'>Prev</Button>
+                    size='sm' className='px-3'>이전</Button>
                 <span className='mx-3'>{page}</span>
                 <Button onClick={() => setPage(page + 1)} 
                     disabled = {page === lastPage} 
-                    size='sm' className='px-3'>Next</Button>
+                    size='sm' className='px-3'>다음</Button>
             </div>
         </div>
     )
